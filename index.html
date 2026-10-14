@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Healthy People, Healthy Animals, Connected Communities | Arctic Digital Nomads Grant</title>
+  <meta name="description" content="Arctic Digital Nomads Grant application: public health, animal health, behavioural science, community design and storytelling across Norway, Iceland and the Faroe Islands.">
+  <style>
+    :root {
+      --ink: #183036;
+      --muted: #64777d;
+      --line: rgba(24, 48, 54, 0.11);
+      --ice: #f4f8f7;
+      --mist: #e3eeee;
+      --fjord: #2d6f78;
+      --deep: #123842;
+      --night: #08262d;
+      --sun: #c99552;
+      --paper: #fbfaf6;
+      --white: #ffffff;
+      --shadow: 0 18px 70px rgba(8, 47, 57, 0.10);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(227, 238, 238, 0.72), transparent 34rem),
+        linear-gradient(180deg, var(--paper), #f8fbfa 42%, var(--paper));
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      background: rgba(251, 250, 246, 0.78);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 760;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-size: 0.84rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--fjord);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--night);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6, 31, 39, 0.08), rgba(6, 31, 39, 0.92)),
+        linear-gradient(90deg, rgba(6, 31, 39, 0.78), rgba(6, 31, 39, 0.22) 58%, rgba(6, 31, 39, 0.4));
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 34vh;
+      background: linear-gradient(180deg, transparent, var(--paper));
+      z-index: 1;
+      opacity: 0.72;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max), calc(100% - 44px));
+      margin: 0 auto;
+      padding: 132px 0 86px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 0.82rem;
+      font-weight: 760;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #cfe9e7;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 18px;
+      font-size: clamp(3rem, 6.7vw, 6.45rem);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+    }
+
+    .amp {
+      color: var(--sun);
+      font-style: italic;
+    }
+
+    .hero-lede {
+      max-width: 760px;
+      margin-bottom: 28px;
+      font-size: clamp(1.12rem, 2vw, 1.45rem);
+      color: #eef7f6;
+      text-wrap: balance;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 34px;
+    }
+
+    .pill {
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(8px);
+      font-weight: 650;
+      font-size: 0.92rem;
+    }
+
+    .scroll {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #f5fbfb;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 104px 22px;
+    }
+
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .section-number {
+      color: var(--sun);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      line-height: 1;
+      font-style: italic;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
+      gap: clamp(34px, 6vw, 72px);
+      align-items: center;
+    }
+
+    .kicker {
+      color: var(--fjord);
+      font-weight: 760;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(2rem, 3.7vw, 3.45rem);
+      line-height: 1.08;
+      letter-spacing: -0.022em;
+      text-wrap: balance;
+    }
+
+    h2 em,
+    h3 em {
+      color: var(--fjord);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    .lead {
+      max-width: 780px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+
+    .quote {
+      margin: 28px 0;
+      padding: 28px 30px;
+      border-left: 5px solid var(--sun);
+      background: rgba(241, 248, 247, 0.86);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.28rem;
+      line-height: 1.45;
+      color: var(--deep);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: var(--white);
+      border: 1px solid rgba(24, 48, 54, 0.06);
+    }
+
+    .photo-card img {
+      min-height: 360px;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .soft {
+      background:
+        linear-gradient(180deg, rgba(241, 248, 247, 0.96), rgba(223, 236, 235, 0.72)),
+        var(--ice);
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .person {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 14px 50px rgba(8, 47, 57, 0.06);
+    }
+
+    .initial {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: var(--deep);
+      color: var(--white);
+      font-weight: 780;
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      margin-bottom: 4px;
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+
+    .role {
+      margin-bottom: 18px;
+      color: var(--fjord);
+      font-weight: 720;
+    }
+
+    .person ul,
+    .share-list,
+    .paper-list {
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+
+    .person li {
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+      line-height: 1.55;
+    }
+
+    .person li strong {
+      display: block;
+      color: var(--deep);
+      margin-bottom: 3px;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .profile-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--fjord);
+      background: rgba(241, 248, 247, 0.74);
+      font-size: 0.88rem;
+      font-weight: 720;
+    }
+
+    .profile-link:hover {
+      border-color: rgba(26, 107, 120, 0.38);
+      background: var(--mist);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .focus-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 14px 50px rgba(8, 47, 57, 0.055);
+    }
+
+    .focus-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--fjord);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .promo-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 22px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(26, 107, 120, 0.42), transparent),
+        var(--deep);
+      color: var(--white);
+      box-shadow: 0 14px 50px rgba(8, 47, 57, 0.09);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--sun);
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: #d8e8e7;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .month {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 14px 50px rgba(8, 47, 57, 0.055);
+    }
+
+    .month-label {
+      margin-bottom: 18px;
+      color: var(--fjord);
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+    }
+
+    .attendance {
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(215, 154, 69, 0.16), transparent 36%),
+        var(--mist);
+      color: var(--deep);
+      font-size: 1.06rem;
+    }
+
+    .share-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .share-list li {
+      padding: 26px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 50px rgba(8, 47, 57, 0.055);
+    }
+
+    .share-list i {
+      display: block;
+      color: var(--sun);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .image-band {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 36px;
+    }
+
+    .wide-photo {
+      padding: 0;
+      overflow: hidden;
+      background: var(--night);
+    }
+
+    .wide-photo figure {
+      position: relative;
+      min-height: 62vh;
+      margin: 0;
+      display: grid;
+      align-items: end;
+      color: var(--white);
+    }
+
+    .wide-photo img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.86;
+    }
+
+    .wide-photo figcaption {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 44px));
+      margin: 0 auto;
+      padding: 0 0 54px;
+      font-size: clamp(1.4rem, 3vw, 2.6rem);
+      line-height: 1.14;
+      font-family: Georgia, "Times New Roman", serif;
+      text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    .wide-photo figure::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 32%, rgba(6, 31, 39, 0.86)),
+        linear-gradient(90deg, rgba(6, 31, 39, 0.38), transparent);
+    }
+
+    .image-band .photo-card img {
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .podcast-card {
+      height: 100%;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 14px 50px rgba(8, 47, 57, 0.055);
+    }
+
+    .podcast-cover {
+      width: 150px;
+      border-radius: var(--radius);
+      box-shadow: 0 18px 48px rgba(13, 55, 65, 0.18);
+      margin-bottom: 22px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--fjord);
+      color: var(--fjord);
+      font-weight: 720;
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: var(--fjord);
+      color: var(--white);
+    }
+
+    .button.primary {
+      background: var(--fjord);
+      color: var(--white);
+    }
+
+    .nordic-note {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+      color: #d8e8e7;
+      font-size: 0.98rem;
+    }
+
+    .paper-list li {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 18px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .year {
+      color: var(--fjord);
+      font-weight: 780;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: var(--mist);
+      color: var(--deep);
+      font-weight: 720;
+      font-size: 0.84rem;
+    }
+
+    .final {
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(9, 47, 57, 0.84), rgba(6, 31, 39, 0.96)),
+        url("https://jesper-vivi-arctic-grant-intro-em6bxuxfbxfxqxxy.cf.metaaiusercontent.com/assets/thingeyri.jpg") center / cover fixed;
+    }
+
+    .final .lead,
+    .final .kicker {
+      color: #d8e8e7;
+    }
+
+    footer {
+      padding: 28px 22px;
+      background: #061f27;
+      color: #bed0d2;
+      font-size: 0.9rem;
+    }
+
+    footer .section-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .split,
+      .people-grid,
+      .focus-grid,
+      .timeline,
+      .share-list,
+      .image-band {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-content {
+        padding-bottom: 54px;
+      }
+
+      .wide-photo figure {
+        min-height: 48vh;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .person,
+      .month,
+      .share-list li,
+      .podcast-card {
+        padding: 22px;
+      }
+
+      .paper-list li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Arctic Digital Nomads Grant</a>
+      <div class="nav-links">
+        <a href="#people">Who we are</a>
+        <a href="#offer">What we offer</a>
+        <a href="#promote">Promotion</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <img src="https://jesper-vivi-arctic-grant-intro-em6bxuxfbxfxqxxy.cf.metaaiusercontent.com/assets/thingeyri.jpg" alt="The village of Thingeyri in Iceland's Westfjords, a small harbour town between snow-covered mountains and a calm fjord in winter light">
+    <div class="hero-content">
+      <p class="eyebrow">Applying to the Arctic Digital Nomads Grant · Norway / Iceland / Faroe Islands</p>
+      <h1>Healthy People, Healthy Animals, Connected Communities</h1>
+      <p class="hero-lede">A veterinary epidemiologist and a behaviour-change researcher bringing practical science, community design and public storytelling to Arctic communities in Norway, Iceland or the Faroe Islands.</p>
+      <div class="pill-row" aria-label="Application themes">
+        <span class="pill">One Health science</span>
+        <span class="pill">Behaviour change & community design</span>
+        <span class="pill">Fully remote, proven</span>
+        <span class="pill">Public storytelling</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="soft" id="people">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="section-number">01</span>
+          <div>
+            <p class="kicker">The two of us</p>
+            <h2>Who we are</h2>
+          </div>
+        </div>
+
+        <div class="people-grid">
+          <article class="person">
+            <div class="initial">J</div>
+            <h3>Dr Jesper Chia-Hui Hsu</h3>
+            <p class="role">DVM, PhD · Veterinary Epidemiologist</p>
+            <p>Jesper builds mathematical and statistical models of how infectious diseases move between animals and people. His work on African swine fever and transboundary animal diseases supports practical disease-control decisions for governments and farming communities.</p>
+            <ul>
+              <li><strong>Training</strong>DVM, National Taiwan University (2017) · PhD in Veterinary Epidemiology, University of Minnesota (2024) · Research Fellow (Postdoctoral) in Infectious Disease Modeling, University of Sussex (2026)</li>
+              <li><strong>Highlights</strong>12 peer-reviewed papers · 40+ veterinary professionals trained in the Philippines</li>
+              <li><strong>Off-duty</strong>Tennis, running, triathlons, snowboarding and whale watching</li>
+            </ul>
+            <div class="profile-links" aria-label="Jesper profile links">
+              <a class="profile-link" href="https://cahfs.umn.edu/faculty-staff/jesper-chia-hui-hsu-dvm-phd">University of Minnesota Profile</a>
+              <a class="profile-link" href="https://scholar.google.com/citations?user=-lJnDPwAAAAJ&hl=en">Google Scholar</a>
+            </div>
+          </article>
+
+          <article class="person">
+            <div class="initial">V</div>
+            <h3>Yun-Chien "Vivi" Kuei</h3>
+            <p class="role">Behaviour Change Researcher · Community Design Facilitator</p>
+            <p>Vivi works at the intersection of behaviour change, organisational development and community design. Her Arctic project focuses on how shared spaces, winter routines and local governance can reduce loneliness and support elegant aging.</p>
+            <ul>
+              <li><strong>Training</strong>MSc Behaviour Change, University College London (2025-26) · BA Educational Management, minor in Psychology</li>
+              <li><strong>Experience</strong>HR business partnering, social innovation, facilitation and community governance</li>
+              <li><strong>Highlights</strong>500+ participants engaged through organisational evolution conferences and forums</li>
+            </ul>
+            <div class="profile-links" aria-label="Vivi profile links">
+              <a class="profile-link" href="https://medium.com/@vivi.guei">Vivi's Medium</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="stats" aria-label="Application highlights">
+          <div class="stat"><strong>12</strong><span>peer-reviewed research papers</span></div>
+          <div class="stat"><strong>40+</strong><span>public health professionals trained</span></div>
+          <div class="stat"><strong>500+</strong><span>community and organisation participants reached</span></div>
+          <div class="stat"><strong>65+</strong><span>podcast episodes produced together</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offer">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="section-number">02</span>
+          <div>
+            <p class="kicker">What we can offer</p>
+            <h2>Useful, local and easy to join</h2>
+          </div>
+        </div>
+        <p class="lead">We would offer practical, participatory activities that connect One Health, community resilience and everyday cultural exchange.</p>
+        <div class="focus-grid">
+          <article class="focus-card">
+            <strong>One Health</strong>
+            <h3>Wildlife, animal and community health</h3>
+            <p>Jesper can help residents turn local observations into simple citizen-science records: wildlife health, seabird patterns, animal illness, and everyday prevention around pets, livestock, food and harbour life.</p>
+          </article>
+          <article class="focus-card">
+            <strong>Community Design</strong>
+            <h3>Reducing loneliness through better rituals</h3>
+            <p>Using the COM-B model, Vivi would explore what enables or blocks social connection, then facilitate practical sessions on winter routines, shared spaces, sociocracy and agile governance for local projects.</p>
+          </article>
+          <article class="focus-card">
+            <strong>Everyday Exchange</strong>
+            <h3>A table, a language swap and a reason to gather</h3>
+            <p>Beyond formal workshops, we would host Asian home-cooking nights, Mandarin-English-Icelandic language exchange, and running or tennis meetups: small, repeatable reasons for people to gather.</p>
+          </article>
+        </div>
+        <div class="timeline">
+          <article class="month">
+            <span class="month-label">Month 01</span>
+            <h3>Citizen-science kickoff: watching wildlife health, together</h3>
+            <p>We would set up a simple, shared way for residents to record wildlife and seabird observations: strandings, unusual behaviour, sick animals, and seasonal patterns. Local eyes know this coastline best; we would add the epidemiological toolkit.</p>
+          </article>
+
+          <article class="month">
+            <span class="month-label">Month 02</span>
+            <h3>Designing healthy routines for everyday village life</h3>
+            <p>Practical, hands-on sessions shaped around fishing, farming, harbour life and winter routines: hand and food hygiene, safe handling of catch and game, and small behavioural nudges that make prevention and connection easier.</p>
+          </article>
+
+          <article class="month">
+            <span class="month-label">Month 03</span>
+            <h3>Keeping animals healthy, keeping people connected</h3>
+            <p>A veterinarian's open clinic of ideas paired with a community-design conversation: parasite control, vaccination basics, spotting illness early, and how shared animal care can become one more reason for neighbours to look after one another.</p>
+          </article>
+        </div>
+
+        <div class="attendance"><strong>Format:</strong> compact, local and conversational, around 20-40 participants per session.</div>
+      </div>
+    </section>
+
+    <section class="final" id="promote">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="section-number">03</span>
+          <div>
+            <p class="kicker">Social media and public storytelling</p>
+            <h2>How we would promote the program</h2>
+          </div>
+        </div>
+        <p class="lead">We already create public-facing stories through writing, podcasting and social media. During the residency, we would document the program respectfully and consistently, focusing on community life, remote work, One Health and Arctic resilience.</p>
+        <div class="image-band">
+          <figure class="photo-card">
+            <img src="https://jesper-vivi-arctic-grant-intro-em6bxuxfbxfxqxxy.cf.metaaiusercontent.com/assets/nodraft-cover.png" alt="Cover art for the No Draft podcast: a small white paper ghost wearing headphones, writing on paper with a green pencil">
+            <figcaption class="caption">No Draft: our Mandarin-language podcast, on air since June 2023.</figcaption>
+          </figure>
+          <div class="focus-grid promo-grid">
+            <article class="focus-card">
+              <strong>Podcast</strong>
+              <h3>No Draft</h3>
+              <p>65+ episodes and 30,000+ downloads across Asia, Europe and North America, with monthly Arctic-themed episodes during the grant.</p>
+              <div class="profile-links">
+                <a class="profile-link" href="https://open.spotify.com/show/0nrSpTsuxRS8TzVsluynVy">Listen on Spotify</a>
+              </div>
+            </article>
+            <article class="focus-card">
+              <strong>Blog</strong>
+              <h3>Vivi's Diary</h3>
+              <p>Vivi writes on Medium about behaviour change, community, work and life design, making it a natural channel for reflective updates from the residency.</p>
+            </article>
+            <article class="focus-card">
+              <strong>Social Media</strong>
+              <h3>Visual field notes</h3>
+              <p>Short posts, photos and reels introducing the grant, the host community and lessons for future remote workers.</p>
+            </article>
+          </div>
+        </div>
+        <p class="nordic-note">A quiet, useful presence: clear workshops, respectful storytelling and enough time to become part of the rhythm of a small Arctic community.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-inner">
+      <span>Prepared for the Arctic Digital Nomads Grant application, October 2026.</span>
+      <span>Jesper & Vivi · currently in the UK, applying for Norway / Iceland / Faroe Islands.</span>
+    </div>
+  </footer>
+</body>
+</html>
